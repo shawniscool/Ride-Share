@@ -75,7 +75,6 @@ function createTabs(){
 				var dayMonth = parseDate(date);
 				var combinedName = (dayMonth[0]+1).toString() + "/" + dayMonth[1].toString();
 				ind = dateList.indexOf(combinedName);
-				// console.log("ind is " + ind);
 				if (ind == -1) {
 					dateList.push(combinedName);
 				}
