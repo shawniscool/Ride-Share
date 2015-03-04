@@ -2,7 +2,7 @@
 #form_container
 {
 	background:#fff;
-	border:1px solid #ccc;
+	border:1px solid #47a3da;
 	margin:0 auto;
 	text-align:left;
 	width:640px;
@@ -52,7 +52,7 @@ img
 
 .appnitro li
 {
-	width:61%;
+	width:100%;
 }
 
 form ul
@@ -822,3 +822,14 @@ background: #dedede;
 font-weight: bold;
 }
 
+@media screen and (max-width: 55em) {
+	#form_container{
+		width:100%;
+	}
+	input.medium
+	{
+		width:75%;
+	}
+
+
+}
