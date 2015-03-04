@@ -100,7 +100,7 @@ function createTabs(){
 				var sectionNum="section"+ i.toString();
 				// console.log("section name is " +sectionNum);
 				$('.content').append("<section id ='" + sectionNum + "' class ='" + className + "'></section>");
-				$('#dates').append("<li><a href = #" + sectionNum + " class = 'icon-shop'><span>" + dateList[i] + "</span></a></li>");
+				$('#dates').append("<li><a href = #" + sectionNum + " <span>" + dateList[i] + "</span></a></li>");
 			}
 			var text = "";
 			for(var i = 0; i<results.length; i++){
@@ -111,15 +111,15 @@ function createTabs(){
 				text += "<h3>" + ride.get("time") + ", " + (date[0]+1).toString() + "/" + date[1].toString() + "</h3>";
 				text += "<h5>" + ride.get("direction") + "</h5>";
 				// text += "<ul>";
-					text += "Name: " + ride.get("name");
-					text += "<br>Contact Info:";
+					text += "<p>Name: " + ride.get("name") + "</p>";
+					text += "<br><p>Contact Info:</p>";
 					text += "<ul>";
 						text += "<li> Phone: " + ride.get("phone") + "</li>";
 						text += "<li> email: " + ride.get("email") + "</li>";
 					text += "</ul>";
 					text += "Preferred Meeting Place: " + ride.get("place");
-					text += "<br>Method of Transportation: " + ride.get("transportation");
-					text += "<br>Additional Comments: " + ride.get("additional");
+					text += "<br><p>Method of Transportation: " + ride.get("transportation") + "</p>";
+					text += "<br><p>Additional Comments: " + ride.get("additional") + "</p>";
 				// text += "</ul>";
 				var md =  parseDate(ride.get("date"));
 				var className = (md[0]+1).toString() + md[1].toString();
