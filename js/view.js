@@ -75,7 +75,7 @@ function createTabs(){
 				var dayMonth = parseDate(date);
 				var combinedName = (dayMonth[0]+1).toString() + "/" + dayMonth[1].toString();
 				ind = dateList.indexOf(combinedName);
-				console.log("ind is " + ind);
+				// console.log("ind is " + ind);
 				if (ind == -1) {
 					dateList.push(combinedName);
 				}
@@ -86,29 +86,29 @@ function createTabs(){
 			uniqueList = dateList.filter(onlyUnique);
 			// console.log("dateSet is " + dateSet);
 			// var dateList = Array.from(dateSet);
-			console.log("DateList:" + dateList);
+			// console.log("DateList:" + dateList);
 			// var uniqueList = dateList.filter(function(item, i, ar){ return ar.indexOf(item) === i; });
-			console.log("uniqueList:" + uniqueList);
+			// console.log("uniqueList:" + uniqueList);
 			
 			for(var i = 0; i< dateList.length; i++){
-				console.log("there");
+				// console.log("there");
 				// var md = parseDate(dateList[i])//returns array of [month, day]
 				// var className = md[0].toString() + md[1].toString();
 				var split = splitString(dateList[i]);
 				var className = split[0] + split[1];
-				console.log("class name is " + className);
+				// console.log("class name is " + className);
 				var sectionNum="section"+ i.toString();
-				console.log("section name is " +sectionNum);
+				// console.log("section name is " +sectionNum);
 				$('.content').append("<section id ='" + sectionNum + "' class ='" + className + "'></section>");
-				$('#dates').append("<li><a href = #" + sectionNum + "><span>" + dateList[i] + "</span></a></li>");
+				$('#dates').append("<li><a href = #" + sectionNum + " class = 'icon-shop'><span>" + dateList[i] + "</span></a></li>");
 			}
-
 			var text = "";
 			for(var i = 0; i<results.length; i++){
-				console.log("here");
+				// console.log("here");
 				var ride = results[i];
 				text += "<div class = 'mediabox'>";
-				text += "<h3>" + ride.get("time") + "</h3>";
+				date = parseDate(ride.get("date")); 
+				text += "<h3>" + ride.get("time") + ", " + (date[0]+1).toString() + "/" + date[1].toString() + "</h3>";
 				text += "<h5>" + ride.get("direction") + "</h5>";
 				// text += "<ul>";
 					text += "Name: " + ride.get("name");
