@@ -50,25 +50,25 @@
 				</nav> -->
 				<div>
 					<div id="form_container">	
-		<form id="form_979213" class="appnitro"  method="post" action="">
+		<form id="rideForm" class="appnitro"  method="post" action="">
 					<div class="form_description">
 			<h2>Ride Share form!</h2>
-			<p>Complete the form!</p>
+			<p>Complete the form! * denotes that the input must be completed.</p>
 		</div>						
 			<ul >
 			
 					<li id="li_2" >
-		<label class="description" for="element_2">Name </label>
+		<label class="description" for="element_2">Name *</label>
 		<span>
-			<input id="element_2_1" name= "element_2_1" class="element text" maxlength="255" size="8" value=""/>
+			<input id="element_2_1" name= "element_2_1" class="element text" maxlength="255" size="8" value="" />
 			<label>First</label>
 		</span>
 		<span>
-			<input id="element_2_2" name= "element_2_2" class="element text" maxlength="255" size="14" value=""/>
+			<input id="element_2_2" name= "element_2_2" class="element text" maxlength="255" size="14" value="" />
 			<label>Last</label>
 		</span> 
 		</li>		<li id="li_7" >
-		<label class="description" for="element_7">Contact phone </label>
+		<label class="description" for="element_7">Contact phone *</label>
 		<span>
 			<input id="element_7_1" name="element_7_1" class="element text" size="3" maxlength="3" value="" type="text"> -
 			<label for="element_7_1">(###)</label>
@@ -83,21 +83,21 @@
 		</span>
 		 
 		</li>		<li id="li_8" >
-		<label class="description" for="element_8">Your contact email </label>
+		<label class="description" for="element_8">Your contact email *</label>
 		<div>
-			<input id="element_8" name="element_8" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="element_8" name="element_8" class="element text medium" type="email" maxlength="255" value="" required/> 
 		</div> 
 		</li>		<li id="li_6" >
-		<label class="description" for="element_6">Which direction? </label>
+		<label class="description" for="element_6">Which direction? *</label>
 		<span>
-			<input id="element_6_1" name="element_6" class="element radio" type="radio" value="1" />
+			<input id="element_6_1" name="element_6" class="element radio" type="radio" value="Swat to Airport" />
 <label class="choice" for="element_6_1">Swat to Airport</label>
-<input id="element_6_2" name="element_6" class="element radio" type="radio" value="2" />
+<input id="element_6_2" name="element_6" class="element radio" type="radio" value="Airport to Swat" />
 <label class="choice" for="element_6_2">Airport to Swat</label>
 
 		</span> 
 		</li>		<li id="li_3" >
-		<label class="description" for="element_3">Date </label>
+		<label class="description" for="element_3">Date *</label>
 		<span>
 			<input id="element_3_1" name="element_3_1" class="element text" size="2" maxlength="2" value="" type="text"> /
 			<label for="element_3_1">MM</label>
@@ -126,12 +126,19 @@
 		</script>
 		 
 		</li>		<li id="li_10" >
-		<label class="description" for="element_10">Time to meet up? (etc: must be before 5:30am, anytime between 3:30-5:30am) </label>
+		<label class="description" for="element_10">Time to meet up? (etc: must be before 5:30am, anytime between 3:30-5:30am) *</label>
 		<div>
-			<input id="element_10" name="element_10" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="element_10" name="element_10" class="element text medium" type="text" maxlength="255" value="" required/> 
 		</div> 
-		</li>		<li id="li_9" >
-		<label class="description" for="element_9">What transportation method? (cab,uber...) </label>
+		</li>		
+		<li id="li_12" >
+		<label class="description" for="element_12">Preferred meeting place(etc: Parrish circle, Terminal E) *</label>
+		<div>
+			<input id="element_12" name="element_12" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_9" >
+		<label class="description" for="element_9">What transportation method? (cab,uber...) *</label>
 		<div>
 			<input id="element_9" name="element_9" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
@@ -144,7 +151,6 @@
 			
 					<li class="buttons">
 			    <input type="hidden" name="form_id" value="979213" />
-			    
 				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
 		</li>
 			</ul>
