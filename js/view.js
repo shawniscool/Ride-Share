@@ -6,6 +6,7 @@ $(function(){
 });
 
 function initialize(){
+	createTabs();
 	// console.log("in the initialize function");
 	$('#saveForm').on('click',function(e){
 		// alert("aaa");
@@ -48,12 +49,107 @@ function initialize(){
 
 		ride.save(null,{
 		success: function(person){
-			alert('New object created');
-			// location.reload()
+			alert('You have successfully posted your ride info!');
+			location.reload();
 		},
 		error:function(person,error){
 			alert('Failed to create new object, with error code: ' + error.message);
 		}
 		});
 	});
+}
+
+function createTabs(){
+	var rideObject = Parse.Object.extend("Ride");
+	var query = new Parse.Query(rideObject);
+	query.ascending("date");
+	
+	//Find all dates in database
+	var dateList = [];
+	var uniqueList = [];
+	// var dateSet = new Set();
+	query.find({
+		success:function(results){
+			for(var i = 0; i<results.length; i++){
+				var date = results[i].get("date");
+				var dayMonth = parseDate(date);
+				var combinedName = (dayMonth[0]+1).toString() + "/" + dayMonth[1].toString();
+				ind = dateList.indexOf(combinedName);
+				console.log("ind is " + ind);
+				if (ind == -1) {
+					dateList.push(combinedName);
+				}
+				// if (!dateSet.has(results[i].get("date"))){
+				// 	dateSet.add(results[i].get("date"));
+				// }
+			}
+			uniqueList = dateList.filter(onlyUnique);
+			// console.log("dateSet is " + dateSet);
+			// var dateList = Array.from(dateSet);
+			console.log("DateList:" + dateList);
+			// var uniqueList = dateList.filter(function(item, i, ar){ return ar.indexOf(item) === i; });
+			console.log("uniqueList:" + uniqueList);
+			
+			for(var i = 0; i< dateList.length; i++){
+				console.log("there");
+				// var md = parseDate(dateList[i])//returns array of [month, day]
+				// var className = md[0].toString() + md[1].toString();
+				var split = splitString(dateList[i]);
+				var className = split[0] + split[1];
+				console.log("class name is " + className);
+				var sectionNum="section"+ i.toString();
+				console.log("section name is " +sectionNum);
+				$('.content').append("<section id ='" + sectionNum + "' class ='" + className + "'></section>");
+				$('#dates').append("<li><a href = #" + sectionNum + "><span>" + dateList[i] + "</span></a></li>");
+			}
+
+			var text = "";
+			for(var i = 0; i<results.length; i++){
+				console.log("here");
+				var ride = results[i];
+				text += "<div class = 'mediabox'>";
+				text += "<h3>" + ride.get("time") + "</h3>";
+				text += "<h5>" + ride.get("direction") + "</h5>";
+				// text += "<ul>";
+					text += "Name: " + ride.get("name");
+					text += "<br>Contact Info:";
+					text += "<ul>";
+						text += "<li> Phone: " + ride.get("phone") + "</li>";
+						text += "<li> email: " + ride.get("email") + "</li>";
+					text += "</ul>";
+					text += "Preferred Meeting Place: " + ride.get("place");
+					text += "<br>Method of Transportation: " + ride.get("transportation");
+					text += "<br>Additional Comments: " + ride.get("additional");
+				// text += "</ul>";
+				var md =  parseDate(ride.get("date"));
+				var className = (md[0]+1).toString() + md[1].toString();
+				console.log("before appending element, className is " + className);
+				var classStr = "."+className;
+				$(classStr).append(text);
+				text = "";
+			}
+			new CBPFWTabs( document.getElementById( 'tabs' ) );
+
+		},
+		error: function(err){
+			alert("Query to database raised unexpected error.")
+		}
+	});
+
+}
+
+function splitString(string){
+	var str = string.split("/");
+	console.log(str);
+	return str;
+}
+
+function onlyUnique(value, index, self) { 
+    return self.indexOf(value) === index;
+}
+
+function parseDate(d){
+	month = d.getMonth();
+	day = d.getDate();
+	return [month, day];
 }

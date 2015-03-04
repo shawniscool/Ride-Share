@@ -23,7 +23,7 @@ $(document).ready(function(){
 				var md = parseDate(dateList[i])//returns array of [month, day]
 				var className = md[0].toString() + md[1].toString();
 				var sectionNum="section"+i.toString();
-				$('#content').append("<section id ='" + sectionNum + "' class ='" + className + "'></section>");
+				$('.content').append("<section id ='" + sectionNum + "' class ='" + className + "'></section>");
 				$('#dates').append("<li><a href = #" + sectionNum + "><span>" + (md[0]+1).toString() + "/" + md[1].toString() + "</span></a></li>");
 
 				
@@ -51,9 +51,7 @@ $(document).ready(function(){
 				var classStr = "."+className;
 				$(classStr).append(text);
 				text = "";
-
 			}
-			
 		},
 		error: function(err){
 			alert("Query to database raised unexpected error.")
@@ -94,6 +92,11 @@ $(document).ready(function(){
 		}
 	});*/
 });
+
+function createTabs(){
+	
+
+}
 
 function parseDate(d){
 	month = d.getMonth();

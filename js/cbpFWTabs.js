@@ -49,6 +49,7 @@
 		var self = this;
 		this.tabs.forEach( function( tab, idx ) {
 			tab.addEventListener( 'click', function( ev ) {
+			// tab.on('click',function(ev){
 				ev.preventDefault();
 				self._show( idx );
 			} );

@@ -113,6 +113,14 @@
 	content: "\e604";
 }
 
+/*div */
+.content section div{
+	/*margin-left:2%;*/
+	border-style: dotted;
+	/*max-height: 300px;*/
+	height:350px;
+}
+
 /* Content */
 .content section {
 	font-size: 1.25em;
