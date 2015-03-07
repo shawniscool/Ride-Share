@@ -63,6 +63,10 @@ function createTabs(){
 	var rideObject = Parse.Object.extend("Ride");
 	var query = new Parse.Query(rideObject);
 	query.ascending("date");
+	// console.log("aa");
+	// query.sort(function(o1,o2){
+ //  		return sort_o1_before_o2 ? -1 : sort_o1_after_o2 ? 1 : 0;
+	// });
 	
 	//Find all dates in database
 	var dateList = [];
@@ -70,13 +74,20 @@ function createTabs(){
 	// var dateSet = new Set();
 	query.find({
 		success:function(results){
+			var currentDate = new Date();
+			currentDate.setHours(0,0,0,0);
+			// console.log("current time is " + currentDate.getTime());
+			// console.log((currentDate.getMonth()+1) +" / " + currentDate.getDate() + " and time:" + currentDate.getHours() +":" + currentDate.getMinutes());
 			for(var i = 0; i<results.length; i++){
 				var date = results[i].get("date");
-				var dayMonth = parseDate(date);
-				var combinedName = (dayMonth[0]+1).toString() + "/" + dayMonth[1].toString();
-				ind = dateList.indexOf(combinedName);
-				if (ind == -1) {
-					dateList.push(combinedName);
+				// console.log("date is " + date.getTime() +" and " + (date.getMonth()+1) + "/" + date.getDate() + " and time " + date.getHours() +":" + date.getMinutes());
+				if (date.getTime() > currentDate.getTime()){
+					var dayMonth = parseDate(date);
+					var combinedName = (dayMonth[0]+1).toString() + "/" + dayMonth[1].toString();
+					ind = dateList.indexOf(combinedName);
+					if (ind == -1) {
+						dateList.push(combinedName);
+					}
 				}
 				// if (!dateSet.has(results[i].get("date"))){
 				// 	dateSet.add(results[i].get("date"));
@@ -122,7 +133,7 @@ function createTabs(){
 				// text += "</ul>";
 				var md =  parseDate(ride.get("date"));
 				var className = (md[0]+1).toString() + md[1].toString();
-				console.log("before appending element, className is " + className);
+				// console.log("before appending element, className is " + className);
 				var classStr = "."+className;
 				$(classStr).append(text);
 				text = "";
@@ -139,7 +150,7 @@ function createTabs(){
 
 function splitString(string){
 	var str = string.split("/");
-	console.log(str);
+	// console.log(str);
 	return str;
 }
 
