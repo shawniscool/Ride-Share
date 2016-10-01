@@ -7,9 +7,9 @@ Unfortunately, as Terry and I have been busy with other projects, we were unable
 [Swat Ride Share](http://swatrideshare.parseapp.com/)
 
 #Languages
-*HTML
-*CSS
-*Javascript
+-HTML
+-CSS
+-Javascript, jQuery
 
 #Backend
 [Parse](https://parse.com/)
