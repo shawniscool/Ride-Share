@@ -4,7 +4,7 @@ Swat Ride Share is an online platform created by Swarthmore students Shawn Pand 
 Unfortunately, as Terry and I have been busy with other projects, we were unable to continue the maintainance. 
 
 #Demo
-(Swat Ride Share)(http://swatrideshare.parseapp.com/)
+[Swat Ride Share](http://swatrideshare.parseapp.com/)
 
 #Languages
 *HTML
@@ -12,7 +12,7 @@ Unfortunately, as Terry and I have been busy with other projects, we were unable
 *Javascript
 
 #Backend
-(Parse)(https://parse.com/)
+[Parse](https://parse.com/)
 
 #Todo
 *User login
